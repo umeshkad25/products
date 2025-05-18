@@ -2,7 +2,6 @@ package com.amazon.product.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 @Document(collection = "products")
 public class Product {
     @Id
@@ -11,6 +10,15 @@ public class Product {
     private String description;
     private String price;
     private String sellerId;
+    private String imageURL;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public String getSellerId() {
         return sellerId;

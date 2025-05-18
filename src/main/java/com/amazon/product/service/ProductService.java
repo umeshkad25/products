@@ -1,25 +1,14 @@
 package com.amazon.product.service;
 
 import com.amazon.product.model.Product;
-import com.amazon.product.mongoRepo.MongoRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
-@Service
-public class ProductService {
-    @Autowired
-    private MongoRepo mongoRepo;
+public interface ProductService {
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
-
-    public List<Product> getAllProducts() {
-        List<Product> listOfProducts= mongoRepo.findAll();
-        return listOfProducts;
-    }
-
+    public Page<Product> getAllProducts(PageRequest pageRequest);
+    public Product addProduct(Product product);
 
 }
